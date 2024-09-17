@@ -62,5 +62,5 @@ Ponto de entrada do programa. Cadastra dois clientes e exclui um cliente para de
 
 - **Diretórios de PDF**: Certifique-se de que os diretórios `logs/cadastro/` e `logs/exclusao/` existem ou serão criados automaticamente pelo código. Esses diretórios são onde os PDFs serão salvos.
 - **Validação de CPF**: A validação de CPF é baseada em regras simples de formatação e cálculo. Certifique-se de usar CPFs válidos.
-
+- **Validação de Email**: O email é validado usando uma expressão regular que verifica se o endereço está no formato padrão, incluindo a presença de um `@` e um domínio válido.
 
