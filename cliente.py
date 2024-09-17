@@ -53,7 +53,7 @@ class Cliente:
         # Verifica se o diretório existe, caso contrário cria
         if not os.path.exists(diretorio):
             os.makedirs(diretorio)
-        
+
         # Salva o arquivo PDF
         arquivo = os.path.join(diretorio, f"cadastro_{self.cpf}.pdf")
         pdf.output(arquivo)
