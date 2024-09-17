@@ -47,8 +47,8 @@ class Cliente:
         pdf.cell(200, 10, txt=f"CPF: {self.cpf}", ln=True)
         pdf.cell(200, 10, txt=f"Data de Emissão: {data}", ln=True)
         
-        # Pasta ou diretório onde será salvo os logs
-        diretorio = "logs/"
+        # Diretório com os logs de cadastro
+        diretorio = "logs/cadastro/"
         
         # Verifica se o diretório existe, caso contrário cria
         if not os.path.exists(diretorio):
@@ -63,6 +63,7 @@ class Cliente:
         pdf = FPDF()
         pdf.add_page()
         pdf.set_font("Arial", size=12)
+
         data = datetime.now().strftime('%d/%m/%Y %H:%M:%S')
         pdf.cell(200, 10, txt="Exclusão de Cliente", ln=True, align='C')
         pdf.ln(10)
@@ -70,6 +71,13 @@ class Cliente:
         pdf.cell(200, 10, txt=f"CPF: {self.cpf}", ln=True)
         pdf.cell(200, 10, txt=f"Data de Cancelamento: {data}", ln=True)
         pdf.cell(200, 10, txt=f"Motivo: {motivo}", ln=True)
-        arquivo = f"exclusao_{self.cpf}.pdf"
+
+        # Diretório com os logs de exclusão
+        diretorio = "logs/exclusao/"
+        
+        if not os.path.exists(diretorio):
+            os.makedirs(diretorio)
+        
+        arquivo = os.path.join(diretorio, f"exclusao_{self.cpf}.pdf")
         pdf.output(arquivo)
         print(f"Arquivo PDF '{arquivo}' gerado com sucesso!")
